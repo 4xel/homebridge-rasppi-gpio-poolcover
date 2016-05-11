@@ -9,7 +9,7 @@ module.exports = function(homebridge) {
   homebridge.registerAccessory("homebridge-rasppi-gpio-poolcover", "RaspPiGPIOPoolCover", RaspPiGPIOPoolCoverAccessory);
 }
 
-function RaspPiGPIOGarageDoorAccessory(log, config) {
+function RaspPiGPIOPoolCoverAccessory(log, config) {
   this.log = log;
   this.name = config["name"];
   this.doorSwitchPin = config["doorSwitchPin"];
@@ -25,7 +25,7 @@ function RaspPiGPIOGarageDoorAccessory(log, config) {
   setTimeout(this.monitorDoorState.bind(this), this.doorPollInMs);
 }
 
-RaspPiGPIOGarageDoorAccessory.prototype = {
+RaspPiGPIOPoolCoverAccessory.prototype = {
 
   monitorDoorState: function() {
      var isClosed = this.isClosed();
