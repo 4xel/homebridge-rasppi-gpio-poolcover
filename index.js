@@ -6,7 +6,7 @@ module.exports = function(homebridge) {
   Characteristic = homebridge.hap.Characteristic;
   DoorState = homebridge.hap.Characteristic.CurrentDoorState;
 
-  homebridge.registerAccessory("homebridge-rasppi-gpio-poolcover", "RaspPiGPIOPoolCover", RaspPiGPIOPoolCoverAccessory);
+  homebridge.registerAccessory("homebridge-rasppi-gpio-garagedoor", "RaspPiGPIOGarageDoor", RaspPiGPIOGarageDoorAccessory);
 }
 
 function RaspPiGPIOGarageDoorAccessory(log, config) {
@@ -68,7 +68,7 @@ RaspPiGPIOGarageDoorAccessory.prototype = {
   },
 
   isClosed: function() {
-    return fs.readFileSync("/sys/class/gpio/gpio"+this.doorSensorPin+"/value", "utf8").trim() == this.doorSensorCloseState;
+    return fs.readFileSync("/sys/class/gpio/gpio"+this.doorSensorPin+"/value", "utf8").trim() == this.thisdoorSensorCloseState;
   },
 
   switchOff: function() {
