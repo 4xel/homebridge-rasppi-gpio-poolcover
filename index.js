@@ -68,7 +68,7 @@ RaspPiGPIOPoolCoverAccessory.prototype = {
   },
 
   isClosed: function() {
-    return fs.readFileSync("/sys/class/gpio/gpio"+this.doorSensorPin+"/value", "utf8").trim() == this.thisdoorSensorCloseState;
+    return fs.readFileSync("/sys/class/gpio/gpio"+this.doorSensorPin+"/value", "utf8").trim() == "0";
   },
 
   switchOff: function() {
